@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\template\\admin\\AdminLTE-3"
+		}
+	],
+	"settings": {}
+}
