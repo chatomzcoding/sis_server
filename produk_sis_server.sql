@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 18 Jan 2022 pada 14.58
--- Versi server: 5.7.33
--- Versi PHP: 7.4.19
+-- Generation Time: Sep 12, 2022 at 03:05 AM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `chatomz_core`
+-- Database: `produk_sis_server`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -40,7 +40,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `info_website`
+-- Table structure for table `info_website`
 --
 
 CREATE TABLE `info_website` (
@@ -56,20 +56,26 @@ CREATE TABLE `info_website` (
   `kontak` longtext COLLATE utf8mb4_unicode_ci,
   `sosial_media` longtext COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nama_sekolah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kode_sekolah` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `visi` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `misi` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slogan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_sekolah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `info_website`
+-- Dumping data for table `info_website`
 --
 
-INSERT INTO `info_website` (`id`, `nama_aplikasi`, `nama_singkatan`, `tentang`, `alamat`, `maps`, `logo`, `logo_mini`, `footer`, `kontak`, `sosial_media`, `created_at`, `updated_at`) VALUES
-(1, 'core system chatomz', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `info_website` (`id`, `nama_aplikasi`, `nama_singkatan`, `tentang`, `alamat`, `maps`, `logo`, `logo_mini`, `footer`, `kontak`, `sosial_media`, `created_at`, `updated_at`, `nama_sekolah`, `kode_sekolah`, `visi`, `misi`, `slogan`, `jenis_sekolah`) VALUES
+(1, 'SIS', 'sis', 'aplikasi ini dalam proses perancangan', 'perum cgm blok A23', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.447262188441!2d108.19525241477515!3d-7.303542994728801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f5134320c3c31%3A0xa622852d7b1f7eba!2sCikara%20Studio!5e0!3m2!1sid!2sid!4v1645585864890!5m2!1sid!2sid\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '1653292158_20210768.141230232103.png', '1653292158_20210768.141230232103.png', 'copyright 2022', '{\"email\":\"sman1ciawi@gmail.com\",\"telp\":\"081322561697\",\"kode_pos\":\"44187\",\"wa\":\"081322561697\",\"website\":\"www.sman1ciawi.com\"}', '{\"fb\":\"https:\\/\\/www.facebook.com\\/firman.chatomz\",\"tw\":null,\"ig\":null,\"yt\":null,\"pt\":null,\"lk\":null}', NULL, '2022-05-23 07:49:18', 'sman 1 ciawi', '4421', 'menjadi yang terbaik', 'menjadi top indonesia', 'maju terus pantang mundur', 'sma');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -79,7 +85,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -89,13 +95,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_08_19_000000_create_failed_jobs_table', 1),
 (5, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (6, '2021_01_23_032109_create_sessions_table', 1),
-(7, '2021_04_06_055429_create_table_info_website', 1),
-(8, '2021_04_17_035149_create_table_visitor', 1);
+(7, '2021_04_06_055429_create_table_info_website', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -107,7 +112,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -125,7 +130,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sessions`
+-- Table structure for table `sessions`
 --
 
 CREATE TABLE `sessions` (
@@ -138,16 +143,17 @@ CREATE TABLE `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `sessions`
+-- Dumping data for table `sessions`
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('lxS861CoIHTTTPOWxtkj7MYlCShqSaQbYJkN5aws', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiNWJkbGQ4NUk3VFg3UWxacG51bjRSMFhLUlg0cEE2aUp4QUNRMUdKeiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly9sb2NhbGhvc3QvY2hhdG9tei9jb3JlL2Rhc2hib2FyZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRzV1FibEdpL3BjaEdHT1R0NWE2ckllME5wcjRhbmphRjNxZ2p3VVRmVExpYzVSMU5KOWxpYSI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkc1dRYmxHaS9wY2hHR09UdDVhNnJJZTBOcHI0YW5qYUYzcWdqd1VUZlRMaWM1UjFOSjlsaWEiO30=', 1642517919);
+('4wiv1IVDzKyziOH0QSY0IL90JIpmvS24tdPnfgDX', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTUU2anRyeGM4T2F3MVlyUURJczI1aE54N0Q3dzRqZnVCdU9Lb1VPVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTM6Imh0dHA6Ly9sb2NhbGhvc3QvY2lrYXJhc3R1ZGlvL3NlcnZlcnNla29sYWgvZGFzaGJvYXJkIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJHNXUWJsR2kvcGNoR0dPVHQ1YTZySWUwTnByNGFuamFGM3FnandVVGZUTGljNVIxTko5bGlhIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRzV1FibEdpL3BjaEdHT1R0NWE2ckllME5wcjRhbmphRjNxZ2p3VVRmVExpYzVSMU5KOWxpYSI7fQ==', 1662950958),
+('fbyeyjxzcSwVFZC66bxn3Jgn44goqnhJmqV008OL', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoid25rVnI4VThva3hsNjVRbjQ0eW1pMW15V2FiZUdnSjlXdDR2eXZIaCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTM6Imh0dHA6Ly9sb2NhbGhvc3QvY2lrYXJhc3R1ZGlvL3NlcnZlcnNla29sYWgvZGFzaGJvYXJkIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJHNXUWJsR2kvcGNoR0dPVHQ1YTZySWUwTnByNGFuamFGM3FnandVVGZUTGljNVIxTko5bGlhIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRzV1FibEdpL3BjaEdHT1R0NWE2ckllME5wcjRhbmphRjNxZ2p3VVRmVExpYzVSMU5KOWxpYSI7fQ==', 1662950420);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -166,66 +172,43 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `photo`, `level`, `created_at`, `updated_at`) VALUES
-(1, 'core sistem', 'core@admin.com', NULL, '$2y$10$sWQblGi/pchGGOTt5a6rIe0Npr4anjaF3qgjwUTfTLic5R1NJ9lia', NULL, NULL, NULL, 'avatar.png', 'admin', '2022-01-17 17:00:00', '2022-01-17 17:00:00');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `visitor`
---
-
-CREATE TABLE `visitor` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `ip_address` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `browser` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tgl_visitor` date NOT NULL,
-  `hits` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `visitor`
---
-
-INSERT INTO `visitor` (`id`, `ip_address`, `browser`, `tgl_visitor`, `hits`, `created_at`, `updated_at`) VALUES
-(1, '::1', 'Chrome', '2022-01-18', 13, '2022-01-18 14:15:08', '2022-01-18 14:39:43');
+(1, 'admin sekolah', 'admin@gmail.com', NULL, '$2y$10$sWQblGi/pchGGOTt5a6rIe0Npr4anjaF3qgjwUTfTLic5R1NJ9lia', NULL, NULL, NULL, NULL, 'admin', '2022-02-22 08:43:27', '2022-02-22 08:43:27');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indeks untuk tabel `info_website`
+-- Indexes for table `info_website`
 --
 ALTER TABLE `info_website`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indeks untuk tabel `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -233,7 +216,7 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indeks untuk tabel `sessions`
+-- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`),
@@ -241,57 +224,45 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indeks untuk tabel `visitor`
---
-ALTER TABLE `visitor`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `info_website`
+-- AUTO_INCREMENT for table `info_website`
 --
 ALTER TABLE `info_website`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `visitor`
---
-ALTER TABLE `visitor`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

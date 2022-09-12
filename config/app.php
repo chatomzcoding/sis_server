@@ -54,7 +54,7 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL', 'http://localhost/cikarastudio/sis/public'),
+    'asset_url' => env('ASSET_URL', 'http://localhost/cikarastudio/serversekolah/public'),
 
     /*
     |--------------------------------------------------------------------------
