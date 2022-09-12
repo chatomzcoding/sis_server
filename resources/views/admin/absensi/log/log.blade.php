@@ -18,9 +18,15 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
-                       <a href="{{ url('admin/absensi') }}" class="btn btn-secondary btn-sm">Kembali</a>
+                       <a href="{{ url('log') }}" class="btn btn-secondary btn-sm"><i class="fas fa-angle-left"></i> Kembali</a>
+                       <a href="{{ url('log?data=data&s=simpan') }}" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan Log</a>
                   </div>
                   <div class="card-body">
+                    @if ($notif)
+                        <div class="alert alert-success">
+                          Data Log berhasil disimpan !
+                        </div>
+                    @endif
                     <div class="table-responsive mt-3">
                         <table class="table table-bordered">
                               <thead>

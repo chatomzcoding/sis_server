@@ -22,6 +22,7 @@ use App\Http\Controllers\Kbm\KbmController;
 use App\Http\Controllers\Kbm\KelasController;
 use App\Http\Controllers\Kbm\MatapelajaranController;
 use App\Http\Controllers\Kbm\TahunajaranController;
+use App\Http\Controllers\LogController as ControllersLogController;
 use App\Http\Controllers\Sekolah\AksessiswaController;
 use App\Http\Controllers\Sekolah\ArsippegawaiController;
 use App\Http\Controllers\Sekolah\InventarisController;
@@ -65,6 +66,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
         Route::get('admin/absensi',[AbsensiController::class,'index']);
         Route::get('admin/absensi/{sesi}',[AbsensiController::class,'show']);
         Route::get('log',[LogController::class,'index']);
+        Route::resource('log',ControllersLogController::class);
 
     });
 
