@@ -17,7 +17,7 @@ class LogController extends Controller
 
     function __construct()
     {
-        $this->zk = new ZKLibrary('192.168.7.201', 4370);
+        $this->zk = new ZKLibrary('192.168.1.207', 4370);
         $this->zk->connect();
         $this->zk->disableDevice();
     }
