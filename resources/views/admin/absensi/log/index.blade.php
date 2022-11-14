@@ -34,7 +34,7 @@
                      <a href="{{ url('log?data=hapuslog') }}" class="btn btn-danger btn-sm">Hapus Log</a>
                      <a href="{{ url('log?data=hapususer') }}" class="btn btn-danger btn-sm">Hapus User</a>
                      <a href="{{ url('log?data=tambahuser') }}" class="btn btn-success btn-sm">Tambah User</a>
-                     <a href="{{ url('log?data=data') }}" class="btn btn-primary btn-sm">Data Log</a>
+                     <a href="{{ url('datalog?data=data') }}" class="btn btn-primary btn-sm">Data Log</a>
                   </div>
                 </div>
               </div>

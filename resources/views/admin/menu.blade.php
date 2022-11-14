@@ -8,6 +8,24 @@
     <a href="#" class="nav-link">
       <i class="nav-icon fas fa-calendar-check"></i>
       <p>
+        Data Log
+        <i class="fas fa-angle-left right"></i>
+        {{-- <span class="badge badge-info right">6</span> --}}
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{ url('/log')}}" class="nav-link">
+          &nbsp;&nbsp;<i class="fas fa-file nav-icon"></i>
+          <p>Daftar Log Local</p>
+        </a>
+      </li>
+    </ul>
+</li>
+<li class="nav-item">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-calendar-check"></i>
+      <p>
         Data Absensi
         <i class="fas fa-angle-left right"></i>
         {{-- <span class="badge badge-info right">6</span> --}}

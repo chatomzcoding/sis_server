@@ -1,23 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Log;
 use Illuminate\Http\Request;
 use ZKLibrary;
 
-class LogController extends Controller
+class MesinController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public $zk;
 
     function __construct()
     {
-        $this->zk = new ZKLibrary('192.168.7.201', 4370);
+        $this->zk = new ZKLibrary('192.168.1.207', 4370);
         $this->zk->connect();
         $this->zk->disableDevice();
     }
@@ -63,76 +59,11 @@ class LogController extends Controller
                         }
                     }
                 }
+                die();
                 return view('admin.absensi.log.log', compact('log','notif'));
             default:
                 return view('admin.absensi.log.index', compact('data'));
                 break;
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Log  $log
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Log $log)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Log  $log
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Log $log)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Log  $log
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Log $log)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Log  $log
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Log $log)
-    {
-        //
     }
 }
